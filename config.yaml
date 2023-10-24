@@ -1,0 +1,48 @@
+data_path: ./CarDekho.csv
+target: "Price"
+normalize: true
+split: {training: 0.8, testing: 0.2}
+
+columns: 
+  [ { column        : "Make"              
+    , type          : "string"      
+    , categoric     : true 
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Year"              
+    , type          : "unsigned int"
+    , categoric     : true
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Kilometer"         
+    , type          : "unsigned big int"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Fuel Type"         
+    , type          : "string"
+    , categoric     : true
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Transmission"      
+    , type          : "string"
+    , categoric     : true
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Owner"             
+    , type          : "string"
+    , categoric     : true
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Seating Capacity"  
+    , type          : "unsigned small int"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Fuel Tank Capacity"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Price"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  ]
