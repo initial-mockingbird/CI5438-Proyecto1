@@ -98,7 +98,6 @@ def apply_strategy(col_dict,df):
   return df
 
 
-
 def builder(path,target,normalize,split,col_dict):
   category_columns = list(map(lambda x: x["column"], filter(lambda x: "categoric" in x and x["categoric"], col_dict)))
   naive_df = read_dataset(path,col_dict)
