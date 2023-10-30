@@ -67,10 +67,13 @@ def build_category_mapping(category_columns, df):
 
 def categorize(category_mapping, df):
   new = df.copy()
+  dfs = []
   for column in category_mapping:
     for value in category_mapping[column]:
-      new[f"{column}:{value}"] = df[column].map(lambda x: 1 if x == value else 0)
+      #new[f"{column}:{value}"] = df[column].map(lambda x: 1 if x == value else 0)
+      dfs.append(pd.DataFrame({f"{column}:{value}":df[column].map(lambda x: 1 if x == value else 0)}))
     new = new.drop(column,axis=1)
+  new = pd.concat([new] + dfs,axis=1,sort=False)
   return new
     
 

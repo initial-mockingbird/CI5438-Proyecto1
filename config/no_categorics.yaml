@@ -1,0 +1,31 @@
+data_path: ./CarDekho.csv
+target: "Price"
+normalize: true
+split: {training: 0.8, testing: 0.2}
+
+columns: 
+  [ { column        : "Seating Capacity"  
+    , type          : "unsigned small int"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Fuel Tank Capacity"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Price"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Length"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Width"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  , { column        : "Height"
+    , type          : "numeric"
+    , fill_strategy : REMOVE
+    }
+  ]

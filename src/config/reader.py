@@ -2,8 +2,8 @@ from src.config.preprocessing import builder
 import yaml
 
 
-def read_data():
-  with open('config.yaml','r') as f:
+def read_data(conf_location):
+  with open(conf_location,'r') as f:
     unsafe_config = yaml.safe_load(f)
     # print(unsafe_config)
     path   = unsafe_config["data_path"]
