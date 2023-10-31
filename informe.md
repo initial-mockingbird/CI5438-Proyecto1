@@ -165,7 +165,7 @@ Como no se implemento un mecanismo de regularizacion, se decidio correr regresio
 - `no_categorics.yaml`: El cual contiene: `Seating Capacity, Fuel Tank Capacity, Length, Width, Height, Price`
 
 <p align="center">
-  <img src="./imgs/iteration_mse_3.PNG" alt="Sublime's custom image"/>
+  <img src="./imgs/iteration_mse_4.PNG" alt="Sublime's custom image"/>
 </p>
 
 Al ver el grafico de iteracion vs error, podemos observar que tenemos asintotas similares para los 3 conjuntos de columnas, difiriendo significativamente solo en el punto de inflexion. Lo interesante viene cuando analizamos los coeficientes de determinacion:
@@ -185,8 +185,13 @@ Al ver el grafico de iteracion vs error, podemos observar que tenemos asintotas 
    <figcaption>Coeficiente de determinacion para 50000 iteraciones</figcaption>
 </p>
 
+<p align="center">
+  <img src="./imgs/r2_score_4.PNG" alt="Sublime's custom image"/>
+   <figcaption>Coeficiente de determinacion para 100000 iteraciones</figcaption>
+</p>
+
 En el cual vemos un incremento significativo en los 3 conjuntos de columnas
 
-Y aunque el modelo aun con 10000 iteraciones no brinda una buena precision (tan solo de 0.5, llegando a ser solo un buen predictor para la media), vemos que a medida que las iteraciones crecen, aun hay cambios, llegando a obtener 0.65 de accuracy. Lo cual sugiere que pudieramos tener un modelo con resultados aceptables si lo dejamos entrenar hasta $1e5$ iteraciones.
+Y aunque el modelo aun con 10000 iteraciones no brinda una buena precision (tan solo de 0.5, llegando a ser solo un buen predictor para la media), vemos que a medida que las iteraciones crecen, aun hay cambios, llegando a obtener 0.65 de accuracy, estancandose en este valor. Lo cual sugiere que no vale la pena iterar sobre 50000 iteraciones.
 
 Otra conclusion que pudieramos derivar de este modelo, es que debido a que tanto `config.yaml` como `make_year_kilo_seating_fuel_location.yaml` poseen precision similar bajo iteraciones altas, la interseccion de sus columnas nos dara un modelo mas refinado con resultados similares. Mejorando los tiempos de corrida.
